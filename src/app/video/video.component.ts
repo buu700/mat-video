@@ -158,6 +158,10 @@ export class MatVideoComponent implements AfterViewInit, OnChanges, OnDestroy {
     }
 
     private setVideoSrc(src: string|MediaStream|MediaSource|Blob): void {
+        if (!this.video || !this.video.nativeElement) {
+            return;
+        }
+
         this.video.nativeElement.src = null;
         if ('srcObject' in HTMLVideoElement.prototype) {
             this.video.nativeElement.srcObject = null;
