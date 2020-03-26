@@ -22,9 +22,7 @@ export class MatVolumeControlComponent {
   get muted() { return this._muted; }
   set muted(v: boolean) {
     this._muted = v;
-    if (this.video) {
-      this.video.muted = this._muted;
-    }
+    this.video.muted = this._muted;
   }
 
   @Output() mutedChanged = new EventEmitter<boolean>();
@@ -53,9 +51,7 @@ export class MatVolumeControlComponent {
   }
 
   updateMuted(): void {
-    if (this.video) {
-      this.video.muted = this.muted;
-    }
+    this.video.muted = this.muted;
     this.mutedChanged.emit(this.muted);
   }
 
