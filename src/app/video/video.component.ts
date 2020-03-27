@@ -19,7 +19,7 @@ import { EventService } from './services/event.service';
 @Component({
     selector: 'mat-video',
     templateUrl: './video.component.html',
-    styleUrls: ['./video.component.css', './styles/icons.css']
+    styleUrls: ['./video.component.css']
 })
 export class MatVideoComponent implements AfterViewInit, OnChanges, OnDestroy {
     @ViewChild('player') private player: ElementRef;
