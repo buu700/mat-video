@@ -13,7 +13,6 @@ import {
 } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 
-import { MatVolumeControlComponent } from './ui/mat-volume-control/mat-volume-control.component';
 import { EventHandler } from './interfaces/event-handler.interface';
 import { EventService } from './services/event.service';
 
@@ -25,7 +24,6 @@ import { EventService } from './services/event.service';
 export class MatVideoComponent implements AfterViewInit, OnChanges, OnDestroy {
     @ViewChild('player') private player: ElementRef;
     @ViewChild('video') private video: ElementRef;
-    @ViewChild(MatVolumeControlComponent) private volumeControl: MatVolumeControlComponent;
 
     @Input() src: string|MediaStream|MediaSource|Blob = null;
     @Input() title: string = null;
@@ -181,10 +179,6 @@ export class MatVideoComponent implements AfterViewInit, OnChanges, OnDestroy {
         } else {
             this.srcObjectURL = URL.createObjectURL(src);
             this.video.nativeElement.src = this.srcObjectURL;
-        }
-
-        if (this.volumeControl) {
-            this.volumeControl.updateMuted(false);
         }
     }
 
